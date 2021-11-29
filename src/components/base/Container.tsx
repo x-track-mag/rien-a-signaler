@@ -10,10 +10,11 @@ const Container = ({ children, ...moreStyles }) => (
 		height="100%"
 		position="relative"
 		m="0 auto"
+		p={2}
 		maxWidth={{
-			sm: "95%",
+			sm: "90%",
 			lg: "75%",
-			xl: "65ch"
+			xl: "70ch"
 		}}
 		{...moreStyles}
 	>

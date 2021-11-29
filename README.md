@@ -1,14 +1,9 @@
-# MVP starter project build on [NextJS], [Firebase] and [Chakra UI]
+# A temporary Exposition
 
-## How to use
+## Components
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example git@github.com:zipang/the-next-mvp-starter.git my-starter-project
-# or
-yarn create next-app --example git@github.com:zipang/the-next-mvp-starter.git my-starter-project
-```
+This project is built with [NextJS], [Cloudinary], [Chakra UI] and [Snipcard]
+and deployed on Vercel
 
 ## Deploy on Vercel
 

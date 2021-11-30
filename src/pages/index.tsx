@@ -21,8 +21,9 @@ import { withFullscreenLayout } from "src/layouts/FullscreenLayout";
  */
 
 export async function getStaticProps() {
-	const contentPath = path.join(process.cwd(), "_content/exhibition.json");
-	const props = await loadJSONContent(contentPath);
+	const contentPath = path.join(process.cwd(), "_content");
+	const props = await loadJSONContent(path.join(contentPath, "exhibition.json"));
+	props.catalog = await loadJSONContent(path.join(contentPath, "catalog.json"));
 	return { props };
 }
 
@@ -36,11 +37,7 @@ const IndexPage = ({ title, text, catalog, error }) => (
 		{error && <ErrorMessage error={error} />}
 		<Title title={title.en}>{title.fr}</Title>
 		<Paragraph>{text}</Paragraph>
-		<ImageGallery
-			mt={4}
-			pictures={catalog.map(({ images }) => images[0])}
-			height="25vh"
-		/>
+		<ImageGallery mt={4} catalog={catalog} height="25vh" width="100%" />
 	</HeroSection>
 );
 

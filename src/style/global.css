@@ -1,19 +1,18 @@
 @font-face {
-	font-family: "Masuria";
-	src: url("/fonts/Masuria.woff2") format("woff2"),
-		url("/fonts/Masuria.woff") format("woff");
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
 	font-family: "Masuria Italic";
 	src: url("/fonts/Masuria-Italic.woff2") format("woff2"),
 		url("/fonts/Masuria-Italic.woff") format("woff");
 	font-weight: 600;
 	letter-spacing: 0.2rem;
 	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Space Mono";
+	src: url("/fonts/Space-Mono.woff2") format("woff2"),
+		url("/fonts/Space-Mono.woff") format("woff");
+	font-weight: 600;
 	font-display: swap;
 }
 

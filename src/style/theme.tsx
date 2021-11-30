@@ -31,7 +31,7 @@ const fonts = {
 	heading: `"Masuria Italic", Georgia, serif`,
 	body: `"Surt Light", "Helvetica Neue", Helvetica, -apple-system, "Fira Sans",
     Roboto, "Droid Sans", System, sans-serif`,
-	mono: `'Menlo', monospace`
+	mono: `"Space Mono", Menlo, monospace`
 };
 
 // const breakpoints = createBreakpoints({

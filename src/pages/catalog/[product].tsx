@@ -1,9 +1,10 @@
 import { Box, Center } from "@chakra-ui/layout";
-import { SimpleGrid } from "@chakra-ui/react";
+import { Button, SimpleGrid } from "@chakra-ui/react";
 import { Paragraph, SubTitle, Title } from "components/base/Typography";
 import { CloudinaryImage } from "components/CloudinaryImage";
 import { loadJSONContent } from "lib/utils/JSON";
 import path from "path";
+import React from "react";
 import { HeaderLayout } from "src/layouts/HeaderLayout";
 
 /**
@@ -81,12 +82,12 @@ const ProductPage = ({
 							<p>{dimensions}</p>
 						</Box>
 						<Paragraph>{description}</Paragraph>
-						<Paragraph>
+						<Button>
 							Commander pour&nbsp;
 							<code>
 								<strong>{price} €</strong>
 							</code>
-						</Paragraph>
+						</Button>
 					</Box>
 				</SimpleGrid>
 				<Box as="aside" className="navigation"></Box>

@@ -18,6 +18,23 @@ export const Title = ({ children, ...moreProps }) => (
 	</Heading>
 );
 
+/**
+ * Secondary title (rendered as h2)
+ * @param propsWithChildren
+ */
+export const SubTitle = ({ children, ...moreProps }) => (
+	<Heading
+		as="h3"
+		fontSize="2.2rem"
+		fontFamily="Space Mono"
+		lineHeight="2rem"
+		letterSpacing="-0.1rem"
+		{...moreProps}
+	>
+		{children}
+	</Heading>
+);
+
 export const Paragraph = ({ children, ...moreProps }) => (
 	<Text fontSize="1.1rem" mt={1} mb={1} lineHeight="1.5rem" {...moreProps}>
 		{children}

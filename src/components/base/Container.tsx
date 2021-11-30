@@ -1,25 +1,30 @@
-import { Box } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/layout";
 
 /**
  * Centered, responsive container
+ * Use it inside page sections to restrict the text width
  */
-const Container = ({ children, ...moreStyles }) => (
-	<Box
+const Container = ({ children, fluid = false, ...moreStyles }) => (
+	<VStack
 		className="container"
 		width="100%"
 		height="100%"
 		position="relative"
 		m="0 auto"
 		p={2}
-		maxWidth={{
-			sm: "90%",
-			lg: "75%",
-			xl: "70ch"
-		}}
+		maxWidth={
+			fluid
+				? "90%"
+				: {
+						sm: "90%",
+						lg: "75%",
+						xl: "70ch"
+				  }
+		}
 		{...moreStyles}
 	>
 		{children}
-	</Box>
+	</VStack>
 );
 
 export default Container;

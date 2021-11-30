@@ -4,7 +4,7 @@
 		"title": "Rien à Signaler #01",
 		"description": "",
 		"author": "Rémi Besse",
-		"size": "20x25cm",
+		"dimensions": "20x25cm",
 		"price": 35,
 		"images": [
 			{
@@ -21,7 +21,7 @@
 		"title": "Rien à Signaler #02",
 		"description": "",
 		"author": "Rémi Besse",
-		"size": "20x25cm",
+		"dimensions": "20x25cm",
 		"price": 35,
 		"images": [
 			{
@@ -38,7 +38,7 @@
 		"title": "Rien à Signaler #03",
 		"description": "",
 		"author": "Rémi Besse",
-		"size": "20x25cm",
+		"dimensions": "20x25cm",
 		"price": 35,
 		"images": [
 			{
@@ -55,7 +55,7 @@
 		"title": "Rien à Signaler #04",
 		"description": "",
 		"author": "Rémi Besse",
-		"size": "20x25cm",
+		"dimensions": "20x25cm",
 		"price": 35,
 		"images": [
 			{
@@ -72,7 +72,7 @@
 		"title": "Rien à Signaler #05",
 		"description": "",
 		"author": "Rémi Besse",
-		"size": "20x25cm",
+		"dimensions": "20x25cm",
 		"price": 35,
 		"images": [
 			{

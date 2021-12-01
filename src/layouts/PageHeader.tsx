@@ -4,7 +4,7 @@ import Link from "components/base/Links";
 import { Title } from "components/base/Typography";
 import { useVScrollPosition } from "components/base/VScrollPositionProvider";
 import { useEffect, useState } from "react";
-import { loadEnv } from "src/GlobalEnvironment";
+import { GlobalEnvironment, loadEnv } from "src/GlobalEnvironment";
 
 /**
  * @type PageHeaderProps
@@ -24,7 +24,7 @@ const PageHeader = ({ title, height = "3.5rem", ...props }: PageHeaderProps) => 
 	const [isVisible, setVisible] = useState(true);
 	const { scrollY, direction } = useVScrollPosition();
 
-	const { siteUrl, siteName } = loadEnv();
+	const { siteUrl, siteName } = loadEnv() as GlobalEnvironment;
 
 	useEffect(() => {
 		// Disappear when we scroll more than 40 px and re-appear when we scroll up

@@ -55,13 +55,13 @@ export const getStaticPaths = async () => {
 const ProductPage = ({
 	title = "Product #01",
 	description = "This is great",
-	images = [],
+	pictures = [],
 	dimensions = "10x10cm",
 	author = "John Doe",
 	year = 2021,
 	price = 0
 }) => {
-	const { src, alt = "Missing Picture", ratio = 1 } = images[0];
+	const { src, alt = "Missing Picture", ratio = 1 } = pictures[0];
 
 	return (
 		<HeaderLayout>

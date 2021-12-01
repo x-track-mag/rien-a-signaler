@@ -15,8 +15,8 @@ export const ImageGallery = ({ catalog = [], ...moreProps }) => (
 		gap={{ sm: 4, md: 2 }}
 		{...moreProps}
 	>
-		{catalog.map(({ id, images }, i) => {
-			const { src, alt, width, height } = images[0]; // Take the first picture
+		{catalog.map(({ id, pictures }, i) => {
+			const { src, alt, width, height } = pictures[0]; // Take the first picture
 			return (
 				<Link key={`img-gallery-${i}`} href={`/catalog/${id}`}>
 					<CloudinaryImage src={src} alt={alt} ratio={width / height} />

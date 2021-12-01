@@ -3,8 +3,11 @@ import clsx from "clsx";
 import NextLink from "next/link";
 import router from "next/router";
 import { MouseEventHandler } from "react";
+import { loadEnv } from "src/GlobalEnvironment";
 
-const isExternalLink = (href) => /^http/.test(href);
+const siteUrl = loadEnv("siteUrl") as string;
+const isExternalLink = (href: string) =>
+	/^http/.test(href) && href.indexOf(siteUrl) !== 0;
 const isActive = (href) => typeof window !== "undefined" && router.route === href;
 
 /**

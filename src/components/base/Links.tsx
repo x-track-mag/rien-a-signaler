@@ -10,6 +10,12 @@ const isExternalLink = (href: string) =>
 	/^http/.test(href) && href.indexOf(siteUrl) !== 0;
 const isActive = (href) => typeof window !== "undefined" && router.route === href;
 
+const activeLinkStyle = {
+	boxShadow: "none",
+	textDecoration: "none",
+	bgColor: "brand.green"
+};
+
 /**
  * Use Next.js router to navigate to internal pages
  * or not..
@@ -42,6 +48,10 @@ export const Link = ({ href = "#", children, ...props }) => (
 		<ChakraLink
 			target={isExternalLink(href) ? "_blank" : ""}
 			className={clsx({ active: isActive(href) })}
+			borderColor="brand.green"
+			_hover={activeLinkStyle}
+			_active={activeLinkStyle}
+			_focus={activeLinkStyle}
 			{...props}
 		>
 			{children}

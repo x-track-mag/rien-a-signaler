@@ -15,14 +15,18 @@ const global = {
 		overflowX: "hidden",
 		"p, h1, h2, h3, h4": {
 			"&::selection": {
-				backgroundColor: "#8ffe09"
+				backgroundColor: "brand.green"
 			}
 		},
 		"h1, h2, h3, h4": {
 			textColor: "#000"
 		},
 		a: {
-			textDecoration: "underline"
+			textDecoration: "none",
+			borderColor: "brand.green",
+			_hover: {
+				textDecoration: "none"
+			}
 		}
 	}
 };
@@ -43,7 +47,10 @@ const fonts = {
 
 const theme = extendTheme({
 	colors: {
-		black: "#16161D"
+		black: "#16161D",
+		brand: {
+			green: "#8ffe09"
+		}
 	},
 	fonts,
 	// breakpoints,

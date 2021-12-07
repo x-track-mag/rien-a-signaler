@@ -16,6 +16,7 @@ import { withFullscreenLayout } from "src/layouts/FullscreenLayout";
  * @typedef IndexPageProps
  * @property {I18nLabel} title
  * @property {String} text
+ * @property {String} resume
  * @property {Object} catalog
  * @property {String} error
  */
@@ -32,12 +33,12 @@ export async function getStaticProps() {
  * @param {IndexPageProps} props
  * @returns {JSX.Element}
  */
-const IndexPage = ({ title, text, catalog, error }) => (
+const IndexPage = ({ title, resume, catalog, error }) => (
 	<HeroSection>
 		{error && <ErrorMessage error={error} />}
 		<Title title={title.en}>{title.fr}</Title>
-		<Paragraph>{text}</Paragraph>
-		<ImageGallery mt={4} catalog={catalog} height="25vh" width="100%" />
+		<ImageGallery mt={4} mb={4} catalog={catalog} height="365px" width="100%" />
+		<Paragraph>{resume}</Paragraph>
 	</HeroSection>
 );
 

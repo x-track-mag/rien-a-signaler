@@ -1,14 +1,16 @@
-import { Box, Center } from "@chakra-ui/layout";
-import { Button, SimpleGrid } from "@chakra-ui/react";
+import { AspectRatio, Box, Center, HStack } from "@chakra-ui/layout";
+import { SimpleGrid } from "@chakra-ui/react";
+import Link from "components/base/Links";
 import { Paragraph, SubTitle, Title } from "components/base/Typography";
 import { CloudinaryImage } from "components/CloudinaryImage";
+import { SnipCartButton } from "components/snipcart";
 import { loadJSONContent } from "lib/utils/JSON";
 import path from "path";
 import React from "react";
 import { HeaderLayout } from "src/layouts/HeaderLayout";
 
 /**
- * @typedef ProductPageProps
+ * @typedef Product
  * @property {String} id
  * @property {String} title
  * @property {String} description
@@ -17,6 +19,11 @@ import { HeaderLayout } from "src/layouts/HeaderLayout";
  * @property {Number} price
  * @property {Number} year
  * @property {Array} pictures
+ */
+/**
+ * @typedef ProductPageProps
+ * @property {Product} product
+ * @property {Array<>} nav
  */
 
 /**
@@ -28,8 +35,14 @@ export async function getStaticProps({ params }) {
 	const contentPath = path.join(process.cwd(), "_content");
 	const catalog = await loadJSONContent(path.join(contentPath, "catalog.json"));
 	const product = catalog.find(({ id }) => id === productId);
+	const nav = catalog.map(({ id, title }) => ({
+		id,
+		title,
+		selected: id === productId
+	}));
+
 	console.log(`Loaded catalog product`, product);
-	return { props: product };
+	return { props: { product, nav } };
 }
 
 /**
@@ -52,15 +65,14 @@ export const getStaticPaths = async () => {
  * @param {ProductPageProps} props
  * @returns {JSX.Element}
  */
-const ProductPage = ({
-	title = "Product #01",
-	description = "This is great",
-	pictures = [],
-	dimensions = "10x10cm",
-	author = "John Doe",
-	year = 2021,
-	price = 0
-}) => {
+const ProductPage = ({ product, nav = [] }) => {
+	const {
+		title = "Product #01",
+		description = "This is great",
+		pictures = [],
+		author = "John Doe",
+		year = 2021
+	} = product;
 	const { src, alt = "Missing Picture", ratio = 1 } = pictures[0];
 
 	return (
@@ -68,29 +80,33 @@ const ProductPage = ({
 			<Center id="product-page" height="80vh">
 				<SimpleGrid
 					templateColumns={{ sm: "1fr", md: "1fr 1fr" }}
+					width="100%"
+					bgColor="#f1f2f4"
 					gap={4}
 					mt="10vh"
 				>
 					<CloudinaryImage src={src} alt={alt} ratio={ratio} />
 
-					<Box className="product-description">
+					<Box className="product-description" p={2}>
 						<Box className="product-name">
 							<Title>{author}</Title>
 							<SubTitle>
 								{title}&nbsp;({year})
 							</SubTitle>
-							<p>{dimensions}</p>
 						</Box>
 						<Paragraph>{description}</Paragraph>
-						<Button>
-							Commander pour&nbsp;
-							<code>
-								<strong>{price} €</strong>
-							</code>
-						</Button>
+						<SnipCartButton product={product} />
 					</Box>
 				</SimpleGrid>
-				<Box as="aside" className="navigation"></Box>
+				<HStack as="aside" className="navigation" height={10}>
+					{nav.map(({ id, title }) => (
+						<Link key={`nav-${id}`} href={`/catalog/${id}`}>
+							<AspectRatio ratio={20 / 25}>
+								<Center height="100%">{title}</Center>
+							</AspectRatio>
+						</Link>
+					))}
+				</HStack>
 			</Center>
 		</HeaderLayout>
 	);

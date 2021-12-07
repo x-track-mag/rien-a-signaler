@@ -1,4 +1,4 @@
-import { AspectRatio, Box, Center, HStack } from "@chakra-ui/layout";
+import { AspectRatio, Box, Center, Flex, HStack, Spacer } from "@chakra-ui/layout";
 import { SimpleGrid } from "@chakra-ui/react";
 import Link from "components/base/Links";
 import { Paragraph, SubTitle, Title } from "components/base/Typography";
@@ -87,16 +87,17 @@ const ProductPage = ({ product, nav = [] }) => {
 				>
 					<CloudinaryImage src={src} alt={alt} ratio={ratio} />
 
-					<Box className="product-description" p={2}>
+					<Flex className="product-description" p={4} direction="column">
 						<Box className="product-name">
 							<Title>{author}</Title>
 							<SubTitle>
 								{title}&nbsp;({year})
 							</SubTitle>
+							<Paragraph>{description}</Paragraph>
 						</Box>
-						<Paragraph>{description}</Paragraph>
+						<Spacer />
 						<SnipCartButton product={product} />
-					</Box>
+					</Flex>
 				</SimpleGrid>
 				<HStack as="aside" className="navigation" height={10}>
 					{nav.map(({ id, title }) => (

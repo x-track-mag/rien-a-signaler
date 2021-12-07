@@ -8,7 +8,7 @@ export const Title = ({ children, ...moreProps }) => (
 	<Heading
 		as="h2"
 		fontSize="3rem"
-		lineHeight={2}
+		lineHeight={1.3}
 		fontStyle="italic"
 		letterSpacing="0.2rem"
 		userSelect="all"
@@ -25,9 +25,9 @@ export const Title = ({ children, ...moreProps }) => (
 export const SubTitle = ({ children, ...moreProps }) => (
 	<Heading
 		as="h3"
-		fontSize="2.2rem"
+		fontSize="2rem"
 		fontFamily="Space Mono"
-		lineHeight="2rem"
+		lineHeight={1.3}
 		letterSpacing="-0.1rem"
 		{...moreProps}
 	>
@@ -36,7 +36,7 @@ export const SubTitle = ({ children, ...moreProps }) => (
 );
 
 export const Paragraph = ({ children, ...moreProps }) => (
-	<Text fontSize="1.1rem" mt={1} mb={1} lineHeight="1.5rem" {...moreProps}>
+	<Text fontSize="1.1rem" mt={3} mb={1} lineHeight="1.5rem" {...moreProps}>
 		{children}
 	</Text>
 );

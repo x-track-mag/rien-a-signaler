@@ -65,7 +65,7 @@ export const getStaticPaths = async () => {
  * @param {ProductPageProps} props
  * @returns {JSX.Element}
  */
-const ProductPage = ({ product, nav = [] }) => {
+const ProductPage = ({ product }) => {
 	const {
 		title = "Product #01",
 		description = "This is great",

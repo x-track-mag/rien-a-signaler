@@ -1,7 +1,6 @@
-import { AspectRatio, Box, Center, Flex, HStack, Spacer } from "@chakra-ui/layout";
+import { Box, Flex, Spacer } from "@chakra-ui/layout";
 import { SimpleGrid } from "@chakra-ui/react";
 import Container from "components/base/Container";
-import Link from "components/base/Links";
 import { Paragraph, SubTitle, Title } from "components/base/Typography";
 import { CloudinaryImage } from "components/CloudinaryImage";
 import { SnipCartButton } from "components/snipcart";
@@ -100,15 +99,6 @@ const ProductPage = ({ product, nav = [] }) => {
 						<SnipCartButton product={product} />
 					</Flex>
 				</SimpleGrid>
-				<HStack as="aside" className="navigation" height={10}>
-					{nav.map(({ id, title }) => (
-						<Link key={`nav-${id}`} href={`/catalog/${id}`}>
-							<AspectRatio ratio={20 / 25}>
-								<Center height="100%">{title}</Center>
-							</AspectRatio>
-						</Link>
-					))}
-				</HStack>
 			</Container>
 		</HeaderLayout>
 	);

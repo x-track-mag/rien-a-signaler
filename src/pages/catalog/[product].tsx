@@ -1,5 +1,6 @@
 import { AspectRatio, Box, Center, Flex, HStack, Spacer } from "@chakra-ui/layout";
 import { SimpleGrid } from "@chakra-ui/react";
+import Container from "components/base/Container";
 import Link from "components/base/Links";
 import { Paragraph, SubTitle, Title } from "components/base/Typography";
 import { CloudinaryImage } from "components/CloudinaryImage";
@@ -77,7 +78,7 @@ const ProductPage = ({ product, nav = [] }) => {
 
 	return (
 		<HeaderLayout>
-			<Center id="product-page" height="80vh">
+			<Container id="product">
 				<SimpleGrid
 					templateColumns={{ sm: "1fr", md: "1fr 1fr" }}
 					width="100%"
@@ -108,7 +109,7 @@ const ProductPage = ({ product, nav = [] }) => {
 						</Link>
 					))}
 				</HStack>
-			</Center>
+			</Container>
 		</HeaderLayout>
 	);
 };

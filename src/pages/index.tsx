@@ -1,3 +1,4 @@
+import { AspectRatio } from "@chakra-ui/react";
 import ErrorMessage from "components/base/ErrorMessage";
 import { Paragraph, Title } from "components/base/Typography";
 import { ImageGallery } from "components/ImageGallery";
@@ -37,7 +38,9 @@ const IndexPage = ({ title, resume, catalog, error }) => (
 	<HeroSection>
 		{error && <ErrorMessage error={error} />}
 		<Title title={title.en}>{title.fr}</Title>
-		<ImageGallery mt={4} mb={4} catalog={catalog} height="365px" width="100%" />
+		<AspectRatio ratio={4} width="100%">
+			<ImageGallery catalog={catalog} height="100%" />
+		</AspectRatio>
 		<Paragraph>{resume}</Paragraph>
 	</HeroSection>
 );

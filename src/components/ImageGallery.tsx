@@ -1,4 +1,4 @@
-import { SimpleGrid } from "@chakra-ui/layout";
+import { Grid, GridItem } from "@chakra-ui/layout";
 import Link from "./base/Links";
 import { CloudinaryImage } from "./CloudinaryImage";
 
@@ -8,9 +8,8 @@ import { CloudinaryImage } from "./CloudinaryImage";
  * @returns {JSX.Element}
  */
 export const ImageGallery = ({ catalog = [], ...moreProps }) => (
-	<SimpleGrid
+	<Grid
 		className="image-gallery"
-		columns={{ sm: 1, md: 5 }}
 		templateColumns={{ sm: "1fr", md: `repeat(${catalog.length}, 1fr)` }}
 		gap={{ sm: 4, md: 2 }}
 		{...moreProps}
@@ -18,10 +17,12 @@ export const ImageGallery = ({ catalog = [], ...moreProps }) => (
 		{catalog.map(({ id, pictures }, i) => {
 			const { src, alt, width, height } = pictures[0]; // Take the first picture
 			return (
-				<Link key={`img-gallery-${i}`} href={`/catalog/${id}`} lineHeight={0}>
-					<CloudinaryImage src={src} alt={alt} ratio={width / height} />
-				</Link>
+				<GridItem key={`img-gallery-${i}`} height="100%" width="20%">
+					<Link href={`/catalog/${id}`} lineHeight={0}>
+						<CloudinaryImage src={src} alt={alt} ratio={width / height} />
+					</Link>
+				</GridItem>
 			);
 		})}
-	</SimpleGrid>
+	</Grid>
 );

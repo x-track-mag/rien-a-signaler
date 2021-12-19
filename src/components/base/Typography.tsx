@@ -36,7 +36,7 @@ export const SubTitle = ({ children, ...moreProps }) => (
 );
 
 export const Paragraph = ({ children, ...moreProps }) => (
-	<Text fontSize="1.1rem" mt={3} mb={1} lineHeight="1.5rem" {...moreProps}>
+	<Text fontSize="1.1rem" mt={2} mb={1} lineHeight="1.5rem" {...moreProps}>
 		{children}
 	</Text>
 );

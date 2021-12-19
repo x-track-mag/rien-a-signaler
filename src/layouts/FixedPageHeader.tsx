@@ -54,7 +54,7 @@ const FixedPageHeader = ({ title, height = "3.5rem", ...props }: PageHeaderProps
 				</Title>
 			</Link>
 			<Spacer />
-			<Link href="https://leocnsulat.org" title="Le Consulat">
+			<Link href="https://www.leconsulat.org" title="Le Consulat">
 				<SvgLogoLeConsulat />
 			</Link>
 		</HStack>

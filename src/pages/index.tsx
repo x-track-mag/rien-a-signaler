@@ -1,5 +1,6 @@
 import { AspectRatio } from "@chakra-ui/react";
 import ErrorMessage from "components/base/ErrorMessage";
+import Link from "components/base/Links";
 import { Paragraph, Title } from "components/base/Typography";
 import { ImageGallery } from "components/ImageGallery";
 import HeroSection from "components/sections/Hero";
@@ -38,7 +39,9 @@ export async function getStaticProps() {
  */
 const IndexPage = ({ title, resume, catalog, informations, error }) => (
 	<>
-		<SvgLogoLeConsulat position="fixed" top={2} right={2} />
+		<Link href="https://www.leconsulat.org" title="Le Consulat">
+			<SvgLogoLeConsulat position="fixed" top={2} right={2} />
+		</Link>
 		<HeroSection
 			footer={<Footer textTransform="uppercase" rightContent={informations} />}
 			pt={8}

@@ -3,6 +3,7 @@ import ErrorMessage from "components/base/ErrorMessage";
 import { Paragraph, Title } from "components/base/Typography";
 import { ImageGallery } from "components/ImageGallery";
 import HeroSection from "components/sections/Hero";
+import Footer from "layouts/Footer";
 import { loadJSONContent } from "lib/utils/JSON";
 import path from "path";
 import { withFullscreenLayout } from "src/layouts/FullscreenLayout";
@@ -16,8 +17,8 @@ import { withFullscreenLayout } from "src/layouts/FullscreenLayout";
 /**
  * @typedef IndexPageProps
  * @property {I18nLabel} title
- * @property {String} text
  * @property {String} resume
+ * @property {String} informations
  * @property {Object} catalog
  * @property {String} error
  */
@@ -34,15 +35,20 @@ export async function getStaticProps() {
  * @param {IndexPageProps} props
  * @returns {JSX.Element}
  */
-const IndexPage = ({ title, resume, catalog, error }) => (
-	<HeroSection>
-		{error && <ErrorMessage error={error} />}
-		<Title title={title.en}>{title.fr}</Title>
-		<AspectRatio ratio={4} width="100%">
-			<ImageGallery catalog={catalog} height="100%" />
-		</AspectRatio>
-		<Paragraph>{resume}</Paragraph>
-	</HeroSection>
+const IndexPage = ({ title, resume, catalog, informations, error }) => (
+	<>
+		<HeroSection
+			footer={<Footer textTransform="uppercase" rightContent={informations} />}
+			pt={8}
+		>
+			{error && <ErrorMessage error={error} />}
+			<Title title={title.en}>{title.fr}</Title>
+			<Paragraph textTransform="uppercase">{resume}</Paragraph>
+			<AspectRatio ratio={4} width="100%" mt={8}>
+				<ImageGallery catalog={catalog} height="100%" />
+			</AspectRatio>
+		</HeroSection>
+	</>
 );
 
 export default withFullscreenLayout(IndexPage);

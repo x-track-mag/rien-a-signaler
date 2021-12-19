@@ -3,13 +3,13 @@ import { SimpleGrid } from "@chakra-ui/react";
 import Container from "components/base/Container";
 import { Paragraph, SubTitle } from "components/base/Typography";
 import { CloudinaryImage } from "components/CloudinaryImage";
-import Footer from "components/sections/Footer";
 import HeroSection from "components/sections/Hero";
 import { SnipCartButton } from "components/snipcart";
+import FixedHeaderLayout from "layouts/FixedHeaderLayout";
+import Footer from "layouts/Footer";
 import { loadJSONContent } from "lib/utils/JSON";
 import path from "path";
 import React from "react";
-import { HeaderLayout } from "src/layouts/HeaderLayout";
 
 /**
  * @typedef Product
@@ -80,7 +80,7 @@ const ProductPage = ({ product, exhibition }) => {
 	const { src, alt = "Missing Picture", ratio = 1 } = pictures[0];
 
 	return (
-		<HeaderLayout>
+		<FixedHeaderLayout>
 			<HeroSection
 				footer={<Footer textTransform="uppercase" rightContent={informations} />}
 			>
@@ -108,7 +108,7 @@ const ProductPage = ({ product, exhibition }) => {
 					</SimpleGrid>
 				</Container>
 			</HeroSection>
-		</HeaderLayout>
+		</FixedHeaderLayout>
 	);
 };
 

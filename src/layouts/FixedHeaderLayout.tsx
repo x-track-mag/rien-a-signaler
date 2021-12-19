@@ -7,7 +7,7 @@ import FixedPageHeader from "./FixedPageHeader";
  * @param propsWithChildren
  * @returns {JSX.Element}
  */
-export const HeaderLayout = ({ children }) => (
+export const FixedHeaderLayout = ({ children }) => (
 	<Main minH="100vh" bgColor="white">
 		<FixedPageHeader />
 		{children}
@@ -24,7 +24,9 @@ export const withHeaderLayout =
 	// eslint-disable-next-line react/display-name
 	(props) =>
 		(
-			<HeaderLayout>
+			<FixedHeaderLayout>
 				<Component {...props} />
-			</HeaderLayout>
+			</FixedHeaderLayout>
 		);
+
+export default FixedHeaderLayout;

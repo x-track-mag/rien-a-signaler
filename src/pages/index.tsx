@@ -3,6 +3,7 @@ import ErrorMessage from "components/base/ErrorMessage";
 import { Paragraph, Title } from "components/base/Typography";
 import { ImageGallery } from "components/ImageGallery";
 import HeroSection from "components/sections/Hero";
+import SvgLogoLeConsulat from "components/SvgLogoLeConsulat";
 import Footer from "layouts/Footer";
 import { loadJSONContent } from "lib/utils/JSON";
 import path from "path";
@@ -37,6 +38,7 @@ export async function getStaticProps() {
  */
 const IndexPage = ({ title, resume, catalog, informations, error }) => (
 	<>
+		<SvgLogoLeConsulat position="fixed" top={2} right={2} />
 		<HeroSection
 			footer={<Footer textTransform="uppercase" rightContent={informations} />}
 			pt={8}

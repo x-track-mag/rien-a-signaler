@@ -1,8 +1,9 @@
-import { Box } from "@chakra-ui/layout";
+import { HStack, Spacer } from "@chakra-ui/react";
 import { LayoutProps } from "@chakra-ui/styled-system";
 import Link from "components/base/Links";
 import { Title } from "components/base/Typography";
 import { useVScrollPosition } from "components/base/VScrollPositionProvider";
+import SvgLogoLeConsulat from "components/SvgLogoLeConsulat";
 import { useEffect, useState } from "react";
 import { GlobalEnvironment, loadEnv } from "src/GlobalEnvironment";
 
@@ -32,7 +33,7 @@ const FixedPageHeader = ({ title, height = "3.5rem", ...props }: PageHeaderProps
 	}, [direction, scrollY]);
 
 	return (
-		<Box
+		<HStack
 			id="page-header"
 			as="header"
 			position="fixed"
@@ -44,7 +45,7 @@ const FixedPageHeader = ({ title, height = "3.5rem", ...props }: PageHeaderProps
 			left="0"
 			p="1rem"
 			bgColor="white"
-			borderBottom="1px solid black"
+			borderBottom="1px solid #555"
 			{...props}
 		>
 			<Link href={siteUrl} title={title}>
@@ -52,7 +53,11 @@ const FixedPageHeader = ({ title, height = "3.5rem", ...props }: PageHeaderProps
 					{title || siteName}
 				</Title>
 			</Link>
-		</Box>
+			<Spacer />
+			<Link href="https://leocnsulat.org" title="Le Consulat">
+				<SvgLogoLeConsulat />
+			</Link>
+		</HStack>
 	);
 };
 

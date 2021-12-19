@@ -1,6 +1,6 @@
 import { Main } from "components/base/Main";
 import React from "react";
-import PageHeader from "./PageHeader";
+import FixedPageHeader from "./FixedPageHeader";
 
 /**
  * 100vh minimal height + retractable Header
@@ -8,8 +8,8 @@ import PageHeader from "./PageHeader";
  * @returns {JSX.Element}
  */
 export const HeaderLayout = ({ children }) => (
-	<Main minH="100vh" paddingTop={6} bgColor="white">
-		<PageHeader />
+	<Main minH="100vh" bgColor="white">
+		<FixedPageHeader />
 		{children}
 	</Main>
 );

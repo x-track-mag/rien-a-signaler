@@ -1,12 +1,20 @@
-import { Box } from "@chakra-ui/layout";
+import { Stack } from "@chakra-ui/layout";
 import Container from "components/base/Container";
 
-const HeroSection = ({ children }) => (
-	<Box as="section" className="hero-section" height="100vh" width="100%">
+const HeroSection = ({ footer, children, ...moreProps }) => (
+	<Stack
+		as="section"
+		className="hero-section"
+		flexGrow={1}
+		height="100%"
+		width="100%"
+		{...moreProps}
+	>
 		<Container pt={16} pb={8} fluid={true}>
 			{children}
 		</Container>
-	</Box>
+		{footer && footer}
+	</Stack>
 );
 
 export default HeroSection;

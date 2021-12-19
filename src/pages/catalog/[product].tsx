@@ -1,8 +1,10 @@
 import { Box, Flex, Spacer } from "@chakra-ui/layout";
 import { SimpleGrid } from "@chakra-ui/react";
 import Container from "components/base/Container";
-import { Paragraph, SubTitle, Title } from "components/base/Typography";
+import { Paragraph, SubTitle } from "components/base/Typography";
 import { CloudinaryImage } from "components/CloudinaryImage";
+import Footer from "components/sections/Footer";
+import HeroSection from "components/sections/Hero";
 import { SnipCartButton } from "components/snipcart";
 import { loadJSONContent } from "lib/utils/JSON";
 import path from "path";
@@ -34,6 +36,7 @@ export async function getStaticProps({ params }) {
 	const productId = params.product;
 	const contentPath = path.join(process.cwd(), "_content");
 	const catalog = await loadJSONContent(path.join(contentPath, "catalog.json"));
+	const exhibition = await loadJSONContent(path.join(contentPath, "exhibition.json"));
 	const product = catalog.find(({ id }) => id === productId);
 	const nav = catalog.map(({ id, title }) => ({
 		id,
@@ -42,7 +45,7 @@ export async function getStaticProps({ params }) {
 	}));
 
 	console.log(`Loaded catalog product`, product);
-	return { props: { product, nav } };
+	return { props: { exhibition, product, nav } };
 }
 
 /**
@@ -65,41 +68,46 @@ export const getStaticPaths = async () => {
  * @param {ProductPageProps} props
  * @returns {JSX.Element}
  */
-const ProductPage = ({ product }) => {
+const ProductPage = ({ product, exhibition }) => {
 	const {
 		title = "Product #01",
 		description = "This is great",
+		dimensions = "This is great",
 		pictures = [],
-		author = "John Doe",
 		year = 2021
 	} = product;
+	const { informations } = exhibition;
 	const { src, alt = "Missing Picture", ratio = 1 } = pictures[0];
 
 	return (
 		<HeaderLayout>
-			<Container id="product">
-				<SimpleGrid
-					templateColumns={{ sm: "1fr", md: "1fr 1fr" }}
-					width="100%"
-					bgColor="#f1f2f4"
-					gap={4}
-					mt="10vh"
-				>
-					<CloudinaryImage src={src} alt={alt} ratio={ratio} />
+			<HeroSection
+				footer={<Footer textTransform="uppercase" rightContent={informations} />}
+			>
+				<Container id="product">
+					<SimpleGrid
+						templateColumns={{ sm: "1fr", md: "1fr 1fr" }}
+						width="100%"
+						bgColor="#f1f2f4"
+						gap={4}
+						mt={{ lg: "10vh" }}
+					>
+						<CloudinaryImage src={src} alt={alt} ratio={ratio} />
 
-					<Flex className="product-description" p={4} direction="column">
-						<Box className="product-name">
-							<Title>{author}</Title>
-							<SubTitle>
-								{title}&nbsp;({year})
-							</SubTitle>
-							<Paragraph>{description}</Paragraph>
-						</Box>
-						<Spacer />
-						<SnipCartButton product={product} />
-					</Flex>
-				</SimpleGrid>
-			</Container>
+						<Flex className="product-description" p={4} direction="column">
+							<Box className="product-name">
+								<SubTitle>
+									{title}&nbsp;({year})
+								</SubTitle>
+								<Paragraph>{dimensions}</Paragraph>
+								<Paragraph>{description}</Paragraph>
+							</Box>
+							<Spacer />
+							<SnipCartButton product={product} />
+						</Flex>
+					</SimpleGrid>
+				</Container>
+			</HeroSection>
 		</HeaderLayout>
 	);
 };

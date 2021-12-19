@@ -17,10 +17,10 @@ type PageHeaderProps = {
 };
 
 /**
- * Auto-hiding Page Header
+ * Auto-hiding Fixed Page Header
  * @param {PageHeaderProps} props
  */
-const PageHeader = ({ title, height = "3.5rem", ...props }: PageHeaderProps) => {
+const FixedPageHeader = ({ title, height = "3.5rem", ...props }: PageHeaderProps) => {
 	const [isVisible, setVisible] = useState(true);
 	const { scrollY, direction } = useVScrollPosition();
 
@@ -56,4 +56,4 @@ const PageHeader = ({ title, height = "3.5rem", ...props }: PageHeaderProps) => 
 	);
 };
 
-export default PageHeader;
+export default FixedPageHeader;

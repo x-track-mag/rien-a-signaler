@@ -40,3 +40,9 @@ export const Paragraph = ({ children, ...moreProps }) => (
 		{children}
 	</Text>
 );
+
+export const Display = ({ children, ...moreProps }) => (
+	<Paragraph fontWeight={700} textTransform="uppercase" {...moreProps}>
+		{children}
+	</Paragraph>
+);

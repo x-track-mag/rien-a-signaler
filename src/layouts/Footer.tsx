@@ -1,5 +1,6 @@
 import { Box, HStack, Spacer } from "@chakra-ui/layout";
 import Nl2Br from "components/base/Nl2Br";
+import { Display } from "components/base/Typography";
 import { PropsWithChildren } from "react";
 
 /**
@@ -29,7 +30,9 @@ const Footer = ({
 			</Box>
 			<Spacer />
 			<Box className="right-column" textAlign="right">
-				<Nl2Br>{rightContent}</Nl2Br>
+				<Display>
+					<Nl2Br>{rightContent}</Nl2Br>
+				</Display>
 			</Box>
 		</HStack>
 	</>

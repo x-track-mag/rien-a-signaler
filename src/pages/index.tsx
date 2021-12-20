@@ -1,7 +1,7 @@
 import { AspectRatio } from "@chakra-ui/react";
 import ErrorMessage from "components/base/ErrorMessage";
 import Link from "components/base/Links";
-import { Paragraph, Title } from "components/base/Typography";
+import { Display, Title } from "components/base/Typography";
 import { ImageGallery } from "components/ImageGallery";
 import HeroSection from "components/sections/Hero";
 import SvgLogoLeConsulat from "components/SvgLogoLeConsulat";
@@ -42,13 +42,10 @@ const IndexPage = ({ title, resume, catalog, informations, error }) => (
 		<Link href="https://www.leconsulat.org" title="Le Consulat">
 			<SvgLogoLeConsulat position="fixed" top={2} right={2} />
 		</Link>
-		<HeroSection
-			footer={<Footer textTransform="uppercase" rightContent={informations} />}
-			pt={8}
-		>
+		<HeroSection footer={<Footer rightContent={informations} />} pt={8}>
 			{error && <ErrorMessage error={error} />}
 			<Title title={title.en}>{title.fr}</Title>
-			<Paragraph textTransform="uppercase">{resume}</Paragraph>
+			<Display textTransform="uppercase">{resume}</Display>
 			<AspectRatio ratio={4} width="100%" mt={8}>
 				<ImageGallery catalog={catalog} height="100%" />
 			</AspectRatio>
